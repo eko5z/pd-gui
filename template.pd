@@ -1,19 +1,19 @@
-#N struct 1149-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1165-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1150-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1166-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1151-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1167-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1152-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1168-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1153-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1169-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1144-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1170-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
 #N struct 1154-knob float xy0 float xy1 float dx float dy float sx1

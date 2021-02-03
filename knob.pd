@@ -1,4 +1,4 @@
-#N struct 1144-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1239-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
 #N canvas 0 94 1280 930 12;
@@ -13,7 +13,7 @@ thickness;
 0, f 20;
 #X obj 339 286 s pd-\$0-graphics;
 #X obj 48 50 vsl 60 55 0 1 0 0 \$0-slider-value \$0-slider empty 0
-0 0 12 -262144 -262144 -191407 1200 1;
+0 0 12 -262144 -262144 -191407 0 1;
 #X obj 907 467 r \$0-slider-value;
 #X obj 907 492 t b b b;
 #X msg 965 492 clear;
@@ -26,8 +26,8 @@ thickness;
 #X obj 568 567 r \$0-xy1;
 #X obj 775 567 r \$0-foreground;
 #N canvas 0 94 450 300 \$0-graphics 0;
-#X scalar 1144-knob -0.133333 1.13333 0.16 0.21 -0.0991778 1.09918
-0.531405 940 0 999 5 \;;
+#X scalar 1239-knob -0.133333 1.13333 0.04 0.5 -0.0991778 1.09918 0.531405
+900 0 999 5 \;;
 #X coords 0 0 1 1 60 60 2 0 0;
 #X restore 48 48 pd \$0-graphics;
 #X text 177 351 Playing around with the slider values \, i.e. calculating
@@ -58,10 +58,10 @@ subsection datastructures)., f 81;
 #X obj 958 33 loadbang;
 #X obj 1023 33 s \$0-slider-value;
 #X obj 591 108 s \$0-front;
-#X obj 294 589 r \$0-slider-value;
-#X obj 294 614 outlet;
-#X obj 180 589 inlet;
-#X obj 180 639 s \$0-slider-set;
+#X obj 290 839 r \$0-slider-value;
+#X obj 290 864 outlet;
+#X obj 176 839 inlet;
+#X obj 176 889 s \$0-slider-set;
 #X obj 48 23 r \$0-slider-set;
 #X obj 379 153 s \$0-foreground;
 #X obj 677 123 s \$0-background;
@@ -71,14 +71,9 @@ subsection datastructures)., f 81;
 #X text 917 692 <-Remove this if the knob <-is a black/white square.
 , f 26;
 #X obj 881 442 r \$0-thickness;
-#X text 177 564 Inlet and outlet., f 34;
+#X text 173 814 Inlet and outlet., f 34;
 #X obj 274 153 s \$0-thickness;
-#X text 850 228 <-Uhhh... it's an approximation of the margin. <-A
-linear function and some other bullcrap. <-Whenever I test it out I
-pray it works., f 46;
 #X obj 840 206 r \$0-thickness;
-#X obj 619 231 expr (rint(-1.47 + 0.17 * $f1) - $f2 + ceil($f2 / 2)
-+ 1) / $f1, f 32;
 #X obj 393 396 r \$0-angle;
 #X obj 791 123 s \$0-angle;
 #X obj 179 421 expr -(($f1 * (360 - 2 * $f2) + (180 + $f2)) / 360 *
@@ -88,7 +83,7 @@ pray it works., f 46;
 #X obj 393 538 s \$0-dy;
 #X obj 179 498 expr round($f1 * 25) / 25, f 16;
 #X obj 393 498 expr round($f1 * 100) / 100, f 16;
-#X obj 180 614 clip 0 1;
+#X obj 176 864 clip 0 1;
 #X obj 274 128 clip 1 9;
 #X obj 591 83 f \$4;
 #X obj 958 58 t b b b b;
@@ -121,21 +116,21 @@ pray it works., f 46;
 empty <-spaces at the middle and the limits of the knob) \, then <-remove
 those three.;
 #X floatatom 427 458 10 0 0 0 - - -;
-#X obj 435 664 r \$0-angle;
+#X obj 432 596 r \$0-angle;
 #X obj 672 542 r \$0-sx1;
 #X obj 707 567 r \$0-sx2;
 #X obj 742 542 r \$0-sy;
-#X obj 179 689 r \$0-init-1;
-#X obj 293 784 expr 0.5 - 0.6 * sin($f1) \; 0.5 - 0.6 * cos($f1),
+#X obj 176 621 r \$0-init-1;
+#X obj 290 716 expr 0.5 - 0.6 * sin($f1) \; 0.5 - 0.6 * cos($f1),
 f 15;
-#X obj 179 714 expr -((0 * (360 - 2 * ($f2)) + (180 + ($f2))) / 360
+#X obj 176 646 expr -((0 * (360 - 2 * ($f2)) + (180 + ($f2))) / 360
 * 6.28319) \; -((1 * (360 - 2 * $f2) + (180 + ($f2))) / 360 * 6.28319)
 , f 37;
-#X obj 435 689 - 3;
-#X obj 179 784 expr 0.5 - 0.6 * sin($f1), f 15;
-#X obj 179 824 s \$0-sx1;
-#X obj 293 854 s \$0-sx2;
-#X obj 395 854 s \$0-sy;
+#X obj 432 621 - 3;
+#X obj 176 716 expr 0.5 - 0.6 * sin($f1), f 15;
+#X obj 176 756 s \$0-sx1;
+#X obj 290 786 s \$0-sx2;
+#X obj 392 786 s \$0-sy;
 #X obj 534 592 pack f f f f f f f f f f f, f 50;
 #X obj 534 617 append \$0-knob xy0 xy1 dx dy sx1 sx2 sy foreground
 front background thickness, f 57;
@@ -148,7 +143,16 @@ xy0 0.5 0.5 xy0, f 70;
 #X obj 535 797 drawpolygon background 3 0.5 0.5 sx1 sy;
 #X obj 535 822 drawpolygon background 3 0.5 0.5 sx2 sy;
 #X obj 535 747 drawpolygon front thickness 0.5 0.5 dx dy;
-#X connect 0 0 110 11;
+#X text 173 563 Calculate the positions of the min/max indicators.
+, f 47;
+#X text 534 850 TODOs: the only thing that should be done is fixing
+thicknesses > 5 (they stick out a pixel or 1) and maybe checking out
+a different way of changing the knob value., f 97;
+#X obj 619 231 expr (rint(-1.47 + 0.17 * $f1) - $f2 + 4) / $f1, f
+32;
+#X text 850 232 <-Uhhh... it's an approximation of the margin. <-A
+linear function and some other bullcrap., f 46;
+#X connect 0 0 108 11;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 33 0;
@@ -161,18 +165,18 @@ xy0 0.5 0.5 xy0, f 70;
 #X connect 12 0 13 0;
 #X connect 15 0 29 0;
 #X connect 15 1 30 0;
-#X connect 16 0 60 0;
-#X connect 18 0 109 1;
-#X connect 19 0 109 7;
-#X connect 22 0 63 0;
-#X connect 24 0 109 2;
-#X connect 25 0 109 3;
+#X connect 16 0 117 0;
+#X connect 18 0 107 1;
+#X connect 19 0 107 7;
+#X connect 22 0 61 0;
+#X connect 24 0 107 2;
+#X connect 25 0 107 3;
 #X connect 26 0 27 1;
-#X connect 27 0 109 0;
+#X connect 27 0 107 0;
 #X connect 31 0 28 0;
 #X connect 31 1 15 0;
 #X connect 33 0 5 0;
-#X connect 34 0 109 8;
+#X connect 34 0 107 8;
 #X connect 35 0 36 0;
 #X connect 37 0 38 0;
 #X connect 37 0 35 1;
@@ -180,59 +184,59 @@ xy0 0.5 0.5 xy0, f 70;
 #X connect 38 0 35 2;
 #X connect 39 0 40 0;
 #X connect 40 0 35 0;
-#X connect 42 0 71 0;
+#X connect 42 0 69 0;
 #X connect 45 0 46 0;
-#X connect 47 0 68 0;
+#X connect 47 0 66 0;
 #X connect 49 0 9 0;
-#X connect 52 0 109 9;
-#X connect 55 0 109 10;
-#X connect 59 0 60 1;
-#X connect 60 0 31 0;
-#X connect 61 0 63 1;
-#X connect 63 0 64 0;
-#X connect 63 0 96 0;
-#X connect 64 0 66 0;
-#X connect 64 1 67 0;
-#X connect 66 0 23 0;
-#X connect 67 0 65 0;
-#X connect 68 0 48 0;
-#X connect 69 0 57 0;
-#X connect 70 0 44 0;
-#X connect 71 0 43 0;
-#X connect 71 1 81 0;
-#X connect 71 2 80 0;
-#X connect 71 3 73 0;
-#X connect 72 0 74 0;
-#X connect 73 0 72 0;
-#X connect 74 0 82 0;
-#X connect 75 0 70 0;
-#X connect 76 0 91 0;
-#X connect 77 0 92 0;
-#X connect 78 0 90 0;
-#X connect 79 0 89 0;
-#X connect 83 0 89 1;
-#X connect 84 0 90 1;
-#X connect 85 0 94 1;
-#X connect 86 0 91 1;
-#X connect 87 0 92 1;
-#X connect 88 0 93 0;
-#X connect 89 0 41 0;
-#X connect 90 0 69 0;
-#X connect 91 0 51 0;
-#X connect 92 0 62 0;
-#X connect 93 0 94 2;
-#X connect 93 0 94 0;
-#X connect 94 0 50 0;
-#X connect 97 0 104 0;
-#X connect 98 0 109 4;
-#X connect 99 0 109 5;
-#X connect 100 0 109 6;
+#X connect 52 0 107 9;
+#X connect 55 0 107 10;
+#X connect 58 0 117 1;
+#X connect 59 0 61 1;
+#X connect 61 0 62 0;
+#X connect 61 0 94 0;
+#X connect 62 0 64 0;
+#X connect 62 1 65 0;
+#X connect 64 0 23 0;
+#X connect 65 0 63 0;
+#X connect 66 0 48 0;
+#X connect 67 0 57 0;
+#X connect 68 0 44 0;
+#X connect 69 0 43 0;
+#X connect 69 1 79 0;
+#X connect 69 2 78 0;
+#X connect 69 3 71 0;
+#X connect 70 0 72 0;
+#X connect 71 0 70 0;
+#X connect 72 0 80 0;
+#X connect 73 0 68 0;
+#X connect 74 0 89 0;
+#X connect 75 0 90 0;
+#X connect 76 0 88 0;
+#X connect 77 0 87 0;
+#X connect 81 0 87 1;
+#X connect 82 0 88 1;
+#X connect 83 0 92 1;
+#X connect 84 0 89 1;
+#X connect 85 0 90 1;
+#X connect 86 0 91 0;
+#X connect 87 0 41 0;
+#X connect 88 0 67 0;
+#X connect 89 0 51 0;
+#X connect 90 0 60 0;
+#X connect 91 0 92 2;
+#X connect 91 0 92 0;
+#X connect 92 0 50 0;
+#X connect 95 0 102 0;
+#X connect 96 0 107 4;
+#X connect 97 0 107 5;
+#X connect 98 0 107 6;
+#X connect 99 0 101 0;
+#X connect 100 0 105 0;
+#X connect 100 1 106 0;
 #X connect 101 0 103 0;
-#X connect 102 0 107 0;
-#X connect 102 1 108 0;
-#X connect 103 0 105 0;
-#X connect 103 1 102 0;
-#X connect 104 0 103 1;
-#X connect 105 0 106 0;
-#X connect 109 0 110 0;
+#X connect 101 1 100 0;
+#X connect 102 0 101 1;
+#X connect 103 0 104 0;
+#X connect 107 0 108 0;
+#X connect 117 0 31 0;
 #X coords 0 0 1 1 60 60 2 48 48;
