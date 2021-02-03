@@ -1,10 +1,13 @@
-#N struct 1303-knob float y1 float x2 float y3 float x4 float dx float
-dy float foreground float front float background float thickness;
-#N struct 1304-knob float y1 float x2 float y3 float x4 float dx float
-dy float foreground float front float background float thickness;
-#N struct 1305-knob float y1 float x2 float y3 float x4 float dx float
-dy float foreground float front float background float thickness;
-#N canvas 713 573 455 273 12;
+#N struct 1156-knob float xy0 float xy1 float dx float dy float sx1
+float sx2 float sy float foreground float front float background float
+thickness;
+#N struct 1157-knob float xy0 float xy1 float dx float dy float sx1
+float sx2 float sy float foreground float front float background float
+thickness;
+#N struct 1158-knob float xy0 float xy1 float dx float dy float sx1
+float sx2 float sy float foreground float front float background float
+thickness;
+#N canvas 712 572 455 273 12;
 #X obj 17 31 knob;
 #X text 52 30 <-- the default look of the knob — the default values
 are 30 \, 5 \, 0 \, 0 \, 999 \, 45, f 55;
