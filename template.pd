@@ -1,0 +1,13 @@
+#N struct 1153-knob float y1 float x2 float y3 float x4 float dx float
+dy float foreground float front float background float thickness;
+#N canvas 0 94 1280 930 12;
+#X obj 602 463 dac~;
+#X obj 600 418 osc~;
+#X obj 600 375 mtof;
+#X obj 600 350 * 60;
+#X obj 600 308 util/knob 0 0 -1;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
