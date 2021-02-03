@@ -1,123 +1,140 @@
-#N struct 1020-knob float y1 float x2 float y3 float x4 float dx float
+#N struct 1281-knob float y1 float x2 float y3 float x4 float dx float
 dy float foreground float front float background float thickness;
 #N canvas 0 94 1280 930 12;
-#X obj 948 650 pointer;
-#X msg 948 626 traverse \$1 \, bang;
-#X obj 948 601 symbol pd-\$0-graphics;
-#X obj 180 269 r \$0-size;
-#X obj 180 244 namecanvas \$0-knob;
-#X obj 180 350 s \$0-knob;
-#X obj 339 244 r \$0-size;
-#X msg 339 269 donecanvasdialog 1 1 2 0 0 1 1 \$1 \$1 0 0 \, dirty
+#X obj 948 640 pointer;
+#X msg 948 616 traverse \$1 \, bang;
+#X obj 948 591 symbol pd-\$0-graphics;
+#X obj 180 259 r \$0-size;
+#X obj 180 234 namecanvas \$0-knob;
+#X obj 180 340 s \$0-knob;
+#X obj 339 234 r \$0-size;
+#X msg 339 259 donecanvasdialog 1 1 2 0 0 1 1 \$1 \$1 0 0 \, dirty
 0, f 20;
-#X obj 339 324 s pd-\$0-graphics;
-#X obj 48 50 vsl 30 25 0 1 0 0 \$0-slider-value \$0-slider empty 0
-0 0 12 -262144 -262144 -191407 1100 1;
-#X obj 925 526 r \$0-slider-value;
-#X obj 925 551 t b b b;
-#X msg 983 551 clear;
-#X obj 983 576 s pd-\$0-graphics;
-#X text 181 11 Arguments specified on creation., f 107;
-#X obj 651 334 expr -$f1 \; 1 + $f1 \;, f 11;
-#X obj 619 244 r \$0-size;
-#X text 177 216 All the resizing procedures: GoP \, subpatch \, slider
+#X obj 339 314 s pd-\$0-graphics;
+#X obj 48 50 vsl 60 55 0 1 0 0 \$0-slider-value \$0-slider empty 0
+0 0 12 -262144 -262144 -191407 200 1;
+#X obj 925 516 r \$0-slider-value;
+#X obj 925 541 t b b b;
+#X msg 983 541 clear;
+#X obj 983 566 s pd-\$0-graphics;
+#X text 181 11 Arguments specified on creation., f 119;
+#X obj 651 324 expr -$f1 \; 1 + $f1 \;, f 11;
+#X obj 619 234 r \$0-size;
+#X text 177 206 All the resizing procedures: GoP \, subpatch \, slider
 \, and margin calculations., f 113;
-#X obj 544 626 r \$0-xy1;
-#X obj 788 626 r \$0-foreground;
+#X obj 544 616 r \$0-xy1;
+#X obj 788 616 r \$0-foreground;
 #N canvas 0 94 450 300 \$0-graphics 0;
-#X scalar 1020-knob -0.1 1.1 1.1 -0.1 0.4 0.06 0 0 999 5 \;;
-#X coords 0 0 1 1 30 30 2 0 0;
+#X scalar 1281-knob -0.133333 1.13333 1.13333 -0.133333 0.12 0.76 910
+0 999 5 \;;
+#X coords 0 0 1 1 60 60 2 0 0;
 #X restore 48 48 pd \$0-graphics;
-#X text 179 379 Playing around with the slider values \, i.e. calculating
+#X text 179 369 Playing around with the slider values \, i.e. calculating
 the point at which the knob dial should be \, etc., f 34;
-#X obj 181 441 r \$0-slider-value;
-#X obj 181 583 s \$0-dx;
-#X obj 690 625 r \$0-dx;
-#X obj 738 600 r \$0-dy;
-#X obj 514 601 r \$0-xy0;
-#X obj 496 626 f;
-#X obj 619 399 s \$0-slider-value;
-#X obj 651 374 s \$0-xy0;
-#X obj 725 374 s \$0-xy1;
-#X obj 619 309 t b f;
-#X text 494 434 Actual drawing code \, it's hard to explain \, but
+#X obj 181 431 r \$0-slider-value;
+#X obj 181 573 s \$0-dx;
+#X obj 690 615 r \$0-dx;
+#X obj 738 590 r \$0-dy;
+#X obj 514 591 r \$0-xy0;
+#X obj 496 616 f;
+#X obj 619 389 s \$0-slider-value;
+#X obj 651 364 s \$0-xy0;
+#X obj 725 364 s \$0-xy1;
+#X obj 619 299 t b f;
+#X text 494 424 Actual drawing code \, it's hard to explain \, but
 there's a few documents on the net and in the vanilla library (in the
 subsection datastructures)., f 86;
-#X msg 180 295 donecanvasdialog 1 1 2 0 0 1 1 \$1 \$1 48 48 \, dirty
+#X msg 180 285 donecanvasdialog 1 1 2 0 0 1 1 \$1 \$1 48 48 \, dirty
 0, f 20;
-#X obj 836 601 r \$0-front;
-#X obj 498 319 pack s f f;
-#X msg 498 344 \; \$1 size \$2 \$3;
-#X obj 498 244 r \$0-size;
-#X obj 535 269 - 5;
-#X obj 498 269 bang;
-#X obj 498 294 symbol \$0-slider;
-#X obj 181 138 s \$0-size;
-#X obj 604 37 loadbang;
-#X obj 669 37 s \$0-slider-value;
-#X obj 650 139 s \$0-front;
-#X obj 296 634 r \$0-slider-value;
-#X obj 296 659 outlet;
-#X obj 182 634 inlet;
-#X obj 182 684 s \$0-slider-set;
+#X obj 836 591 r \$0-front;
+#X obj 498 309 pack s f f;
+#X msg 498 334 \; \$1 size \$2 \$3;
+#X obj 498 234 r \$0-size;
+#X obj 535 259 - 5;
+#X obj 498 259 bang;
+#X obj 498 284 symbol \$0-slider;
+#X obj 181 156 s \$0-size;
+#X obj 958 61 loadbang;
+#X obj 1023 61 s \$0-slider-value;
+#X obj 591 136 s \$0-front;
+#X obj 296 624 r \$0-slider-value;
+#X obj 296 649 outlet;
+#X obj 182 624 inlet;
+#X obj 182 674 s \$0-slider-set;
 #X obj 48 23 r \$0-slider-set;
-#X obj 473 185 s \$0-foreground;
-#X obj 346 62 r \$0-slider-value;
-#X obj 346 87 f;
-#X obj 309 87 bang;
-#X obj 785 139 s \$0-background;
-#X obj 885 501 r \$0-background;
-#X obj 496 771 filledpolygon background background 0 0 0 1 0 1 1 0
+#X obj 379 181 s \$0-foreground;
+#X obj 677 151 s \$0-background;
+#X obj 885 491 r \$0-background;
+#X obj 496 761 filledpolygon background background 0 0 0 1 0 1 1 0
 1;
-#X text 879 766 <-Remove this if the knob <-is a black/white square.
+#X text 879 756 <-Remove this if the knob <-is a black/white square.
 , f 26;
-#X obj 496 676 append \$0-knob y1 x2 y3 x4 dx dy foreground front background
+#X obj 496 666 append \$0-knob y1 x2 y3 x4 dx dy foreground front background
 thickness, f 65;
-#X obj 496 651 pack f f f f f f f f f f, f 63;
-#X obj 934 476 r \$0-thickness;
-#X obj 496 796 drawcurve foreground thickness 0.5 y1 x2 0.5 0.5 y3
+#X obj 496 641 pack f f f f f f f f f f, f 63;
+#X obj 934 466 r \$0-thickness;
+#X obj 496 786 drawcurve foreground thickness 0.5 y1 x2 0.5 0.5 y3
 x4 0.5 0.5 y1, f 65;
-#X obj 496 731 struct \$0-knob float y1 float x2 float y3 float x4
+#X obj 496 721 struct \$0-knob float y1 float x2 float y3 float x4
 float dx float dy float foreground float front float background float
 thickness, f 65;
-#X text 179 609 Inlet and outlet., f 34;
-#X obj 323 164 s \$0-thickness;
-#X obj 473 115 expr if(\$3 > -1 \, \$3 \, rint(min((1 - $f2) * 18 \,
-9)) * 100 + rint(min($f2 * 18 \, 9)) * 10), f 24;
-#X obj 650 115 expr if(\$4 \, \$4 \, 0);
-#X obj 785 115 expr if(\$5 \, \$5 \, 999);
-#X text 850 266 <-Uhhh... it's an approximation of the margin. <-A
+#X text 179 599 Inlet and outlet., f 34;
+#X obj 274 181 s \$0-thickness;
+#X text 850 256 <-Uhhh... it's an approximation of the margin. <-A
 linear function and some other bullcrap. <-Whenever I test it out I
 pray it works., f 46;
-#X obj 604 62 t b b b;
-#X obj 840 244 r \$0-thickness;
-#X obj 619 269 expr (rint(-1.47 + 0.17 * $f1) - $f2 + ceil($f2 / 2)
+#X obj 840 234 r \$0-thickness;
+#X obj 619 259 expr (rint(-1.47 + 0.17 * $f1) - $f2 + ceil($f2 / 2)
 + 1) / $f1, f 32;
-#X obj 395 441 r \$0-angle;
-#X obj 934 115 expr if(\$6 \, \$6 \, 45);
-#X obj 934 139 s \$0-angle;
-#X obj 181 466 expr -(($f1 * (360 - 2 * $f2) + (180 + $f2)) / 360 *
+#X obj 395 431 r \$0-angle;
+#X obj 791 151 s \$0-angle;
+#X obj 181 456 expr -(($f1 * (360 - 2 * $f2) + (180 + $f2)) / 360 *
 6.28319), f 31;
-#X obj 496 821 drawpolygon front thickness 0.5 0.5 dx dy;
-#X obj 181 503 expr 0.5 - 0.45 * sin($f1) \; 0.5 - 0.45 * cos($f1)
+#X obj 496 811 drawpolygon front thickness 0.5 0.5 dx dy;
+#X obj 181 493 expr 0.5 - 0.45 * sin($f1) \; 0.5 - 0.45 * cos($f1)
 , f 31;
-#X obj 395 583 s \$0-dy;
-#X obj 181 543 expr round($f1 * 25) / 25, f 16;
-#X text 24 506 We need to round the values. The Y value doesn't matter
+#X obj 395 573 s \$0-dy;
+#X obj 181 533 expr round($f1 * 25) / 25, f 16;
+#X text 24 496 We need to round the values. The Y value doesn't matter
 \, but-> the X does \, and we--> round it using some-> arbitrary number
 I picked that works the best at most sizes. If you want a more consistent
 \, but broken at a value of 0 type of knob \, remove the rounds and
 route straight to the send., f 21;
-#X obj 395 543 expr round($f1 * 100) / 100, f 16;
-#X obj 182 659 clip 0 1;
-#X obj 323 139 clip 1 9;
-#X obj 181 114 expr if(\$1 \, \$1 \, 30);
-#X obj 323 114 expr if(\$2 \, \$2 \, 5);
-#X text 184 720 Now \, there's a way to make the knob go up and down
+#X obj 395 533 expr round($f1 * 100) / 100, f 16;
+#X obj 182 649 clip 0 1;
+#X obj 274 156 clip 1 9;
+#X text 184 710 Now \, there's a way to make the knob go up and down
 without using a vslider. It apparently has something to do with dragging
 datastructures around... But that thing I'll figure out later., f
 43;
-#X connect 0 0 58 10;
+#X obj 591 111 f \$4;
+#X obj 958 86 t b b b b;
+#X obj 1151 86 pdcontrol;
+#X msg 1151 61 args;
+#X obj 1151 111 list length;
+#X obj 591 86 r \$0-init-0;
+#X obj 677 86 r \$0-init-0;
+#X obj 791 86 r \$0-init-0;
+#X obj 274 91 r \$0-init-0;
+#X obj 181 91 r \$0-init-1;
+#X obj 998 111 s \$0-init-0;
+#X obj 978 136 s \$0-init-1;
+#X obj 1151 136 s \$0-argsiz;
+#X obj 262 66 r \$0-argsiz;
+#X obj 348 65 r \$0-argsiz;
+#X obj 479 86 r \$0-argsiz;
+#X obj 765 61 r \$0-argsiz;
+#X obj 872 61 r \$0-argsiz;
+#X obj 579 36 r \$0-slider-value;
+#X obj 181 116 expr if($f2 > 0 \, \$1 \, 30), f 12;
+#X obj 274 116 expr if($f2 > 1 \, \$2 \, 5), f 11;
+#X obj 677 111 expr if($f2 > 4 \, \$5 \, 999), f 13;
+#X obj 791 111 expr if($f2 > 5 \, \$6 \, 45), f 12;
+#X obj 579 61 f;
+#X obj 379 111 expr if($f2 > 2 \, if(\$3 == -1 \, (rint(min((1 - $f3)
+* 18 \, 9)) * 100) + (rint(min($f3 * 18 \, 9)) * 10) \, \$3) \, 0)
+, f 29;
+#X connect 0 0 55 10;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 33 0;
@@ -130,20 +147,20 @@ datastructures around... But that thing I'll figure out later., f
 #X connect 12 0 13 0;
 #X connect 15 0 29 0;
 #X connect 15 1 30 0;
-#X connect 16 0 71 0;
-#X connect 18 0 59 1;
-#X connect 18 0 59 2;
-#X connect 19 0 59 6;
-#X connect 22 0 75 0;
-#X connect 24 0 59 4;
-#X connect 25 0 59 5;
+#X connect 16 0 64 0;
+#X connect 18 0 56 1;
+#X connect 18 0 56 2;
+#X connect 19 0 56 6;
+#X connect 22 0 67 0;
+#X connect 24 0 56 4;
+#X connect 25 0 56 5;
 #X connect 26 0 27 1;
-#X connect 27 0 59 0;
-#X connect 27 0 59 3;
+#X connect 27 0 56 0;
+#X connect 27 0 56 3;
 #X connect 31 0 28 0;
 #X connect 31 1 15 0;
 #X connect 33 0 5 0;
-#X connect 34 0 59 7;
+#X connect 34 0 56 7;
 #X connect 35 0 36 0;
 #X connect 37 0 38 0;
 #X connect 37 0 35 1;
@@ -151,38 +168,47 @@ datastructures around... But that thing I'll figure out later., f
 #X connect 38 0 35 2;
 #X connect 39 0 40 0;
 #X connect 40 0 35 0;
-#X connect 42 0 69 0;
+#X connect 42 0 78 0;
 #X connect 45 0 46 0;
-#X connect 47 0 82 0;
+#X connect 47 0 74 0;
 #X connect 49 0 9 0;
-#X connect 51 0 52 0;
-#X connect 51 0 53 0;
-#X connect 52 0 65 1;
-#X connect 53 0 65 0;
-#X connect 55 0 59 8;
-#X connect 59 0 58 0;
-#X connect 60 0 59 9;
-#X connect 65 0 50 0;
-#X connect 66 0 44 0;
-#X connect 67 0 54 0;
-#X connect 69 0 43 0;
-#X connect 69 1 84 0;
-#X connect 69 2 67 0;
-#X connect 69 2 66 0;
-#X connect 69 2 53 0;
-#X connect 69 2 73 0;
-#X connect 69 2 85 0;
-#X connect 70 0 71 1;
-#X connect 71 0 31 0;
-#X connect 72 0 75 1;
-#X connect 73 0 74 0;
-#X connect 75 0 77 0;
-#X connect 77 0 79 0;
-#X connect 77 1 81 0;
-#X connect 79 0 23 0;
-#X connect 81 0 78 0;
-#X connect 82 0 48 0;
-#X connect 83 0 64 0;
-#X connect 84 0 41 0;
-#X connect 85 0 83 0;
-#X coords 0 0 1 1 30 30 2 48 48;
+#X connect 52 0 56 8;
+#X connect 56 0 55 0;
+#X connect 57 0 56 9;
+#X connect 63 0 64 1;
+#X connect 64 0 31 0;
+#X connect 65 0 67 1;
+#X connect 67 0 69 0;
+#X connect 69 0 71 0;
+#X connect 69 1 73 0;
+#X connect 71 0 23 0;
+#X connect 73 0 70 0;
+#X connect 74 0 48 0;
+#X connect 75 0 61 0;
+#X connect 77 0 44 0;
+#X connect 78 0 43 0;
+#X connect 78 1 88 0;
+#X connect 78 2 87 0;
+#X connect 78 3 80 0;
+#X connect 79 0 81 0;
+#X connect 80 0 79 0;
+#X connect 81 0 89 0;
+#X connect 82 0 77 0;
+#X connect 83 0 98 0;
+#X connect 84 0 99 0;
+#X connect 85 0 97 0;
+#X connect 86 0 96 0;
+#X connect 90 0 96 1;
+#X connect 91 0 97 1;
+#X connect 92 0 101 1;
+#X connect 93 0 98 1;
+#X connect 94 0 99 1;
+#X connect 95 0 100 0;
+#X connect 96 0 41 0;
+#X connect 97 0 75 0;
+#X connect 98 0 51 0;
+#X connect 99 0 66 0;
+#X connect 100 0 101 2;
+#X connect 100 0 101 0;
+#X connect 101 0 50 0;
+#X coords 0 0 1 1 60 60 2 48 48;

@@ -1,0 +1,26 @@
+#N struct 1303-knob float y1 float x2 float y3 float x4 float dx float
+dy float foreground float front float background float thickness;
+#N struct 1304-knob float y1 float x2 float y3 float x4 float dx float
+dy float foreground float front float background float thickness;
+#N struct 1305-knob float y1 float x2 float y3 float x4 float dx float
+dy float foreground float front float background float thickness;
+#N canvas 713 573 455 273 12;
+#X obj 17 31 knob;
+#X text 52 30 <-- the default look of the knob — the default values
+are 30 \, 5 \, 0 \, 0 \, 999 \, 45, f 55;
+#X text 12 146 The arguments [knob] takes in are as follows: size in
+pixels (values divisible by 10 are the best) \, thickness (odd numbers
+look the best) \, foreground (the outline) color \, front (the "hand"
+of the knob) color \, background color \, and the margin from 180°
+in degrees., f 61;
+#X floatatom 16 118 60 0 0 0 - - -;
+#X text 6 5 [knob] — a knob with 0–1 output and input.;
+#X text 58 69 <-- a knob with arguments of 40 \, 5 (which is also the
+default \, -1 (a secret) \, and 222;
+#X obj 12 65 knob 40 5 -1 222;
+#X obj 15 221 knob 40 5 -1 999 0;
+#X text 58 221 <-- a knob with a background of "0" (black). All colors
+are in the RGB format \, where 0 is white and 999 is black., f 54
+;
+#X connect 0 0 6 0;
+#X connect 6 0 3 0;
