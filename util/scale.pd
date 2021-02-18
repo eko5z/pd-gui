@@ -1,0 +1,6 @@
+#N canvas 435 583 450 300 12;
+#X obj 62 40 inlet;
+#X obj 62 65 expr (\$4 - \$3) * ($f1 - \$1) / (\$2 - \$1) + \$3;
+#X obj 62 90 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

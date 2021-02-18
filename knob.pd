@@ -1,242 +1,108 @@
-#N struct 1239-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
+#N struct 1005-knob float back float front float dx float dy float
+value;
 #N canvas 0 94 1280 930 12;
-#X obj 930 591 pointer;
-#X msg 930 567 traverse \$1 \, bang;
-#X obj 930 542 symbol pd-\$0-graphics;
-#X obj 180 231 r \$0-size;
-#X obj 180 206 namecanvas \$0-knob;
-#X obj 180 312 s \$0-knob;
-#X obj 339 206 r \$0-size;
-#X msg 339 231 donecanvasdialog 1 1 2 0 0 1 1 \$1 \$1 0 0 \, dirty
-0, f 20;
-#X obj 339 286 s pd-\$0-graphics;
-#X obj 48 50 vsl 60 55 0 1 0 0 \$0-slider-value \$0-slider empty 0
-0 0 12 -262144 -262144 -191407 0 1;
-#X obj 907 467 r \$0-slider-value;
-#X obj 907 492 t b b b;
-#X msg 965 492 clear;
-#X obj 965 517 s pd-\$0-graphics;
-#X text 181 11 Arguments specified on creation., f 119;
-#X obj 651 296 expr -$f1 \; 1 + $f1 \;, f 11;
-#X obj 619 206 r \$0-size;
-#X text 177 178 All the resizing procedures: GoP \, subpatch \, slider
-\, and margin calculations., f 113;
-#X obj 568 567 r \$0-xy1;
-#X obj 775 567 r \$0-foreground;
-#N canvas 0 94 450 300 \$0-graphics 0;
-#X scalar 1239-knob -0.133333 1.13333 0.04 0.5 -0.0991778 1.09918 0.531405
-900 0 999 5 \;;
-#X coords 0 0 1 1 60 60 2 0 0;
-#X restore 48 48 pd \$0-graphics;
-#X text 177 351 Playing around with the slider values \, i.e. calculating
-the point at which the knob dial should be \, etc., f 45;
-#X obj 179 396 r \$0-slider-value;
-#X obj 179 538 s \$0-dx;
-#X obj 603 517 r \$0-dx;
-#X obj 638 567 r \$0-dy;
-#X obj 552 542 r \$0-xy0;
-#X obj 534 567 f;
-#X obj 619 361 s \$0-slider-value;
-#X obj 651 336 s \$0-xy0;
-#X obj 725 336 s \$0-xy1;
-#X obj 619 271 t b f;
-#X text 525 400 Actual drawing code \, it's hard to explain \, but
-there's a few documents on the net and in the vanilla library (in the
-subsection datastructures)., f 81;
-#X msg 180 257 donecanvasdialog 1 1 2 0 0 1 1 \$1 \$1 48 48 \, dirty
-0, f 20;
-#X obj 811 542 r \$0-front;
-#X obj 498 281 pack s f f;
-#X msg 498 306 \; \$1 size \$2 \$3;
-#X obj 498 206 r \$0-size;
-#X obj 535 231 - 5;
-#X obj 498 231 bang;
-#X obj 498 256 symbol \$0-slider;
-#X obj 181 128 s \$0-size;
-#X obj 958 33 loadbang;
-#X obj 1023 33 s \$0-slider-value;
-#X obj 591 108 s \$0-front;
-#X obj 290 839 r \$0-slider-value;
-#X obj 290 864 outlet;
-#X obj 176 839 inlet;
-#X obj 176 889 s \$0-slider-set;
-#X obj 48 23 r \$0-slider-set;
-#X obj 379 153 s \$0-foreground;
-#X obj 677 123 s \$0-background;
-#X obj 846 517 r \$0-background;
-#X obj 534 697 filledpolygon background background 0 0 0 1 0 1 1 0
-1;
-#X text 917 692 <-Remove this if the knob <-is a black/white square.
-, f 26;
-#X obj 881 442 r \$0-thickness;
-#X text 173 814 Inlet and outlet., f 34;
-#X obj 274 153 s \$0-thickness;
-#X obj 840 206 r \$0-thickness;
-#X obj 393 396 r \$0-angle;
-#X obj 791 123 s \$0-angle;
-#X obj 179 421 expr -(($f1 * (360 - 2 * $f2) + (180 + $f2)) / 360 *
-6.28319), f 31;
-#X obj 179 458 expr 0.5 - 0.45 * sin($f1) \; 0.5 - 0.45 * cos($f1)
-, f 31;
-#X obj 393 538 s \$0-dy;
-#X obj 179 498 expr round($f1 * 25) / 25, f 16;
-#X obj 393 498 expr round($f1 * 100) / 100, f 16;
-#X obj 176 864 clip 0 1;
-#X obj 274 128 clip 1 9;
-#X obj 591 83 f \$4;
-#X obj 958 58 t b b b b;
-#X obj 1151 58 pdcontrol;
-#X msg 1151 33 args;
-#X obj 1151 83 list length;
-#X obj 591 58 r \$0-init-0;
-#X obj 677 58 r \$0-init-0;
-#X obj 791 58 r \$0-init-0;
-#X obj 274 63 r \$0-init-0;
-#X obj 181 63 r \$0-init-1;
-#X obj 998 83 s \$0-init-0;
-#X obj 978 108 s \$0-init-1;
-#X obj 1151 108 s \$0-argsiz;
-#X obj 262 38 r \$0-argsiz;
-#X obj 348 37 r \$0-argsiz;
-#X obj 479 58 r \$0-argsiz;
-#X obj 765 33 r \$0-argsiz;
-#X obj 872 33 r \$0-argsiz;
-#X obj 579 8 r \$0-slider-value;
-#X obj 181 88 expr if($f2 > 0 \, \$1 \, 30), f 12;
-#X obj 274 88 expr if($f2 > 1 \, \$2 \, 5), f 11;
-#X obj 677 83 expr if($f2 > 4 \, \$5 \, 999), f 13;
-#X obj 791 83 expr if($f2 > 5 \, \$6 \, 45), f 12;
-#X obj 579 33 f;
-#X obj 379 83 expr if($f2 > 2 \, if(\$3 == -1 \, (rint(min((1 - $f3)
-* 18 \, 9)) * 100) + (rint(min($f3 * 18 \, 9)) * 10) \, \$3) \, 0)
-, f 29;
-#X text 819 784 <-If you want to remove the "indicators" (i.e. the
-empty <-spaces at the middle and the limits of the knob) \, then <-remove
-those three.;
-#X floatatom 427 458 10 0 0 0 - - -;
-#X obj 432 596 r \$0-angle;
-#X obj 672 542 r \$0-sx1;
-#X obj 707 567 r \$0-sx2;
-#X obj 742 542 r \$0-sy;
-#X obj 176 621 r \$0-init-1;
-#X obj 290 716 expr 0.5 - 0.6 * sin($f1) \; 0.5 - 0.6 * cos($f1),
-f 15;
-#X obj 176 646 expr -((0 * (360 - 2 * ($f2)) + (180 + ($f2))) / 360
-* 6.28319) \; -((1 * (360 - 2 * $f2) + (180 + ($f2))) / 360 * 6.28319)
-, f 37;
-#X obj 432 621 - 3;
-#X obj 176 716 expr 0.5 - 0.6 * sin($f1), f 15;
-#X obj 176 756 s \$0-sx1;
-#X obj 290 786 s \$0-sx2;
-#X obj 392 786 s \$0-sy;
-#X obj 534 592 pack f f f f f f f f f f f, f 50;
-#X obj 534 617 append \$0-knob xy0 xy1 dx dy sx1 sx2 sy foreground
-front background thickness, f 57;
-#X obj 534 657 struct \$0-knob float xy0 float xy1 float dx float dy
-float sx1 float sx2 float sy float foreground float front float background
-float thickness, f 72;
-#X obj 535 722 drawcurve foreground thickness 0.5 xy0 xy1 0.5 0.5 xy1
-xy0 0.5 0.5 xy0, f 70;
-#X obj 535 772 drawpolygon background 3 0.5 0.5 0.5 0;
-#X obj 535 797 drawpolygon background 3 0.5 0.5 sx1 sy;
-#X obj 535 822 drawpolygon background 3 0.5 0.5 sx2 sy;
-#X obj 535 747 drawpolygon front thickness 0.5 0.5 dx dy;
-#X text 173 563 Calculate the positions of the min/max indicators.
-, f 47;
-#X text 534 850 TODOs: the only thing that should be done is fixing
-thicknesses > 5 (they stick out a pixel or 1) and maybe checking out
-a different way of changing the knob value., f 97;
-#X obj 619 231 expr (rint(-1.47 + 0.17 * $f1) - $f2 + 4) / $f1, f
-32;
-#X text 850 232 <-Uhhh... it's an approximation of the margin. <-A
-linear function and some other bullcrap., f 46;
-#X connect 0 0 108 11;
-#X connect 1 0 0 0;
-#X connect 2 0 1 0;
-#X connect 3 0 33 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
+#N canvas 292 496 960 437 \$0-template 0;
+#X obj 2 137 struct \$0-knob float back float front float dx float
+dy float value, f 67;
+#X obj 2 162 outlet;
+#X obj 104 409 drawnumber value -1 0.8, f 67;
+#X obj 104 183 drawnumber value -1 -1 0 xxxx==, f 67;
+#X obj 104 209 drawnumber value -1 -0.8 0 xxxx==, f 67;
+#X obj 104 234 drawnumber value -1 -0.6 0 xxxx==, f 67;
+#X obj 104 259 drawnumber value -1 -0.4 0 xxxx==, f 67;
+#X obj 104 284 drawnumber value -1 -0.2 0 xxxx==, f 67;
+#X obj 104 309 drawnumber value -1 0 0 xxxx==, f 67;
+#X obj 104 334 drawnumber value -1 0.2 0 xxxx==, f 67;
+#X obj 104 359 drawnumber value -1 0.4 0 xxxx==, f 67;
+#X obj 104 384 drawnumber value -1 0.6 0 xxxx==, f 67;
+#X obj 2 1 filledpolygon 0 0 0 0.92 0.38 0.71 0.71 0.38 0.92 -0 1 -0.38
+0.92 -0.71 0.71 -0.92 0.38 -1 -0 -0.92 -0.38 -0.71 -0.71 -0.38 -0.92
+0 -1 0.38 -0.92 0.71 -0.71 0.92 -0.38 1 0 0.92 0.38, f 67;
+#X obj 2 57 filledpolygon 999 999 0 0.55 0.23 0.42 0.42 0.23 0.55 -0
+0.6 -0.23 0.55 -0.42 0.42 -0.55 0.23 -0.6 -0 -0.55 -0.23 -0.42 -0.42
+-0.23 -0.55 0 -0.6 0.23 -0.55 0.42 -0.42 0.55 -0.23 0.6 0 0.55 0.23
+, f 67;
+#X obj 2 112 drawpolygon 999 3 0 0 dx dy, f 67;
+#X connect 0 0 1 0;
+#X restore 32 101 pd \$0-template;
+#X obj 539 471 f;
+#X obj 557 446 r \$0-back;
+#X obj 592 471 r \$0-front;
+#N canvas 0 94 1280 930 \$0-graphics 0;
+#X scalar 1005-knob 0 0 -0.932072 0.362273 44 \;;
+#X coords -1 -1 1 1 64 64 2 2 2;
+#X restore 32 32 pd \$0-graphics;
+#X obj 32 126 unpack s p;
+#X obj 32 151 sel change;
+#X obj 32 201 get \$0-knob value;
+#X obj 32 176 pointer;
+#X obj 32 226 clip 0 500;
+#X obj 32 251 t f f;
+#X obj 32 301 / 500;
+#X obj 32 326 * 270;
+#X obj 32 351 + 225;
+#X obj 32 376 / 360;
+#X obj 32 401 * 6.28319;
+#X obj 32 426 sin;
+#X obj 74 426 cos;
+#X obj 711 495 pointer;
+#X msg 753 396 clear;
+#X obj 753 421 s pd-\$0-graphics;
+#X msg 711 470 traverse \$1 \, bang;
+#X obj 711 445 symbol pd-\$0-graphics;
+#X obj 32 476 set \$0-knob dx;
+#X obj 74 501 set \$0-knob dy;
+#X obj 64 276 set \$0-knob value;
+#X obj 688 396 loadbang;
+#X obj 74 451 * -1;
+#X floatatom 972 285 5 0 0 0 - - -;
+#X obj 972 359 int;
+#X obj 972 309 / 8;
+#X obj 539 495 pack f f;
+#X obj 539 520 append \$0-knob back front;
+#X obj 688 421 t b b b;
+#X obj 888 616 text;
+#X floatatom 972 384 5 0 0 0 - - -;
+#X obj 972 334 - 2;
+#X obj 141 327 / 500;
+#X obj 141 352 outlet;
+#X connect 0 0 5 0;
+#X connect 1 0 31 0;
+#X connect 2 0 1 1;
+#X connect 3 0 31 1;
+#X connect 5 0 6 0;
+#X connect 5 1 8 1;
+#X connect 6 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 8 0 25 1;
+#X connect 8 0 23 1;
+#X connect 8 0 24 1;
+#X connect 9 0 10 0;
 #X connect 10 0 11 0;
-#X connect 11 0 27 0;
-#X connect 11 1 2 0;
-#X connect 11 2 12 0;
+#X connect 10 1 25 0;
+#X connect 10 1 37 0;
+#X connect 11 0 12 0;
 #X connect 12 0 13 0;
-#X connect 15 0 29 0;
-#X connect 15 1 30 0;
-#X connect 16 0 117 0;
-#X connect 18 0 107 1;
-#X connect 19 0 107 7;
-#X connect 22 0 61 0;
-#X connect 24 0 107 2;
-#X connect 25 0 107 3;
-#X connect 26 0 27 1;
-#X connect 27 0 107 0;
-#X connect 31 0 28 0;
-#X connect 31 1 15 0;
-#X connect 33 0 5 0;
-#X connect 34 0 107 8;
-#X connect 35 0 36 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 0 17 0;
+#X connect 16 0 23 0;
+#X connect 17 0 27 0;
+#X connect 18 0 32 2;
+#X connect 19 0 20 0;
+#X connect 21 0 18 0;
+#X connect 22 0 21 0;
+#X connect 26 0 33 0;
+#X connect 27 0 24 0;
+#X connect 28 0 30 0;
+#X connect 29 0 35 0;
+#X connect 30 0 36 0;
+#X connect 31 0 32 0;
+#X connect 33 0 1 0;
+#X connect 33 1 22 0;
+#X connect 33 2 19 0;
+#X connect 36 0 29 0;
 #X connect 37 0 38 0;
-#X connect 37 0 35 1;
-#X connect 37 0 39 0;
-#X connect 38 0 35 2;
-#X connect 39 0 40 0;
-#X connect 40 0 35 0;
-#X connect 42 0 69 0;
-#X connect 45 0 46 0;
-#X connect 47 0 66 0;
-#X connect 49 0 9 0;
-#X connect 52 0 107 9;
-#X connect 55 0 107 10;
-#X connect 58 0 117 1;
-#X connect 59 0 61 1;
-#X connect 61 0 62 0;
-#X connect 61 0 94 0;
-#X connect 62 0 64 0;
-#X connect 62 1 65 0;
-#X connect 64 0 23 0;
-#X connect 65 0 63 0;
-#X connect 66 0 48 0;
-#X connect 67 0 57 0;
-#X connect 68 0 44 0;
-#X connect 69 0 43 0;
-#X connect 69 1 79 0;
-#X connect 69 2 78 0;
-#X connect 69 3 71 0;
-#X connect 70 0 72 0;
-#X connect 71 0 70 0;
-#X connect 72 0 80 0;
-#X connect 73 0 68 0;
-#X connect 74 0 89 0;
-#X connect 75 0 90 0;
-#X connect 76 0 88 0;
-#X connect 77 0 87 0;
-#X connect 81 0 87 1;
-#X connect 82 0 88 1;
-#X connect 83 0 92 1;
-#X connect 84 0 89 1;
-#X connect 85 0 90 1;
-#X connect 86 0 91 0;
-#X connect 87 0 41 0;
-#X connect 88 0 67 0;
-#X connect 89 0 51 0;
-#X connect 90 0 60 0;
-#X connect 91 0 92 2;
-#X connect 91 0 92 0;
-#X connect 92 0 50 0;
-#X connect 95 0 102 0;
-#X connect 96 0 107 4;
-#X connect 97 0 107 5;
-#X connect 98 0 107 6;
-#X connect 99 0 101 0;
-#X connect 100 0 105 0;
-#X connect 100 1 106 0;
-#X connect 101 0 103 0;
-#X connect 101 1 100 0;
-#X connect 102 0 101 1;
-#X connect 103 0 104 0;
-#X connect 107 0 108 0;
-#X connect 117 0 31 0;
-#X coords 0 0 1 1 60 60 2 48 48;
+#X coords 0 0 1 1 64 64 2 32 32;

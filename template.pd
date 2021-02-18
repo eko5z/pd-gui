@@ -1,63 +1,6 @@
-#N struct 1165-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
-#N struct 1166-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
-#N struct 1167-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
-#N struct 1168-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
-#N struct 1169-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
-#N struct 1170-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
-#N struct 1154-knob float xy0 float xy1 float dx float dy float sx1
-float sx2 float sy float foreground float front float background float
-thickness;
+#N struct 1005-knob float back float front float dx float dy float
+value;
 #N canvas 0 94 1280 930 12;
-#X obj 144 304 dac~;
-#X obj 96 199 osc~;
-#X obj 96 156 mtof;
-#X obj 131 199 osc~;
-#X obj 184 199 osc~;
-#X obj 244 199 osc~;
-#X obj 144 279 *~ 0.7;
-#X obj 131 223 *~ 0.5;
-#X obj 184 223 *~ 0.33;
-#X obj 244 223 *~ 0.25;
-#X obj 132 156 * 2;
-#X obj 184 156 * 3;
-#X obj 244 156 * 4;
-#X obj 272 274 pm/preview~;
-#X obj 96 131 * 60;
-#X obj 466 309 knob 60 5 -1;
-#X obj 541 221 knob 50 5 -1;
-#X obj 552 294 knob 40;
-#X obj 616 308 knob 20;
-#X obj 653 306 knob 30;
-#X obj 522 382 knob 60 5 -1 0 999 90;
-#X floatatom 522 447 5 0 0 0 - - -;
-#X obj 608 372 knob 40 5 -1 0 999 135;
-#X connect 1 0 6 0;
-#X connect 2 0 1 0;
-#X connect 2 0 10 0;
-#X connect 2 0 11 0;
-#X connect 2 0 12 0;
-#X connect 3 0 7 0;
-#X connect 4 0 8 0;
-#X connect 5 0 9 0;
-#X connect 6 0 0 0;
-#X connect 6 0 0 1;
-#X connect 6 0 13 0;
-#X connect 7 0 6 0;
-#X connect 8 0 6 0;
-#X connect 9 0 6 0;
-#X connect 10 0 3 0;
-#X connect 11 0 4 0;
-#X connect 12 0 5 0;
-#X connect 20 0 21 0;
+#X obj 587 486 knob;
+#X floatatom 587 555 5 0 0 0 - - -;
+#X connect 0 0 1 0;

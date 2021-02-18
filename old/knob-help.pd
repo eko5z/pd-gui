@@ -1,13 +1,13 @@
-#N struct 1156-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1079-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1157-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1080-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N struct 1158-knob float xy0 float xy1 float dx float dy float sx1
+#N struct 1081-knob float xy0 float xy1 float dx float dy float sx1
 float sx2 float sy float foreground float front float background float
 thickness;
-#N canvas 712 572 455 273 12;
+#N canvas 711 571 455 273 12;
 #X obj 17 31 knob;
 #X text 52 30 <-- the default look of the knob — the default values
 are 30 \, 5 \, 0 \, 0 \, 999 \, 45, f 55;
@@ -20,7 +20,7 @@ in degrees., f 61;
 #X text 6 5 [knob] — a knob with 0–1 output and input.;
 #X text 58 69 <-- a knob with arguments of 40 \, 5 (which is also the
 default \, -1 (a secret) \, and 222;
-#X obj 12 65 knob 40 5 -1 222;
+#X obj 16 67 knob 40 5 -1 222;
 #X obj 15 221 knob 40 5 -1 999 0;
 #X text 58 221 <-- a knob with a background of "0" (black). All colors
 are in the RGB format \, where 0 is white and 999 is black., f 54
