@@ -1,16 +1,24 @@
-#N struct 1326-knob float back float front float dx float dy float
-value;
-#N struct 1328-knob float back float front float dx float dy float
-value;
-#N struct 1330-knob float back float front float dx float dy float
-value;
-#N struct 1332-knob float back float front float dx float dy float
-value;
-#N struct 1334-knob float back float front float dx float dy float
-value;
+#N struct 1107-knob float value float dx float dy float backdrop float
+back float front float valuer float v;
 #N canvas 0 94 1280 930 12;
-#X obj 555 547 knob 16;
-#X obj 587 711 knob 24;
-#X obj 652 539 knob 25;
-#X obj 424 470 knob 45;
-#X obj 678 748 knob 40;
+#X obj 588 339 list;
+#X obj 741 490 route size backdrop back front;
+#X floatatom 736 527 5 0 0 0 - - -;
+#X floatatom 780 531 5 0 0 0 - - -;
+#X floatatom 829 530 5 0 0 0 - - -;
+#X floatatom 898 540 5 0 0 0 - - -;
+#X obj 488 429 print;
+#X obj 485 376 print;
+#X obj 588 364 list split 2;
+#X msg 588 314 size 300 backdrop 400;
+#X obj 588 389 print;
+#X obj 675 644 knob 45;
+#X floatatom 675 694 5 0 0 0 - - -;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X connect 1 3 5 0;
+#X connect 8 0 10 0;
+#X connect 9 0 0 0;
+#X connect 11 0 12 0;

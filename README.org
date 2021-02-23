@@ -1,0 +1,22 @@
+#+TITLE: pd-gui: a collection of PureData GUI elements, made in PureData
+
+This is a collection (for now, only a knob) of PureData GUI elements
+implemented purely in PureData. Unfortunately, the PureData data
+structures are quite limited, but if you try hard enough you can hack
+your way through it and do a lot of things. Of course, you could do
+everything, but performance is a big problem.
+
+* Knob
+A customizable knob element, purely using data structures. The look is
+inspired by Mutable Instruments. Double-click to put the knob dial to
+the middle (i.e. reset it).
+** Showcase
+[[./knob.gif][An animated image presenting the knob]]
+** TODOs
++ fix the "set: empty pointer" bug (it doesn't impact usage at all,
+  just an error)
++ adapt [drawnumber] scalars so they fit most sizes better
++ labels in the middle of the knob
++ display of the current value on click (was implemented, scrapped it
+  for now)
++ number ranges (???)
