@@ -20,3 +20,4 @@ the middle (i.e. reset it).
 + display of the current value on click (was implemented, scrapped it
   for now)
 + number ranges (???)
++ remove "expr" objects to make it more cool
