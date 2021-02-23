@@ -19,5 +19,5 @@ the middle (i.e. reset it).
 + labels in the middle of the knob
 + display of the current value on click (was implemented, scrapped it
   for now)
-+ number ranges (???)
++ +number ranges (???)+
 + remove "expr" objects to make it more cool
