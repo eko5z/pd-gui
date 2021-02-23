@@ -11,7 +11,7 @@ A customizable knob element, purely using data structures. The look is
 inspired by Mutable Instruments. Double-click to put the knob dial to
 the middle (i.e. reset it).
 ** Showcase
-[[./knob.gif][An animated image presenting the knob]]
+[[./knob.gif]]
 ** TODOs
 + fix the "set: empty pointer" bug (it doesn't impact usage at all,
   just an error)
