@@ -1,2 +1,48 @@
+#N struct 12213-knob float value float px1 float px2 float py1 float
+py2 float lv float lx float l;
+#N struct 12225-knob float value float px1 float px2 float py1 float
+py2 float lv float lx float l;
+#N struct 12236-knob float value float px1 float px2 float py1 float
+py2 float lv float lx float l;
+#N struct 12250-knob float value float px1 float px2 float py1 float
+py2 float lv float lx float l;
 #N canvas 0 94 1280 930 12;
-#X coords 0 0 1 1 85 60 2 32 32;
+#X obj 91 35 knob size 51 min 0 max 44100 default 440 front 90;
+#X obj 35 91 knob size 51 default 1 back 222 front 900;
+#X obj 91 91 knob size 51 default 0.5 back 222 front 9;
+#X obj 237 185 osc~;
+#X obj 274 185 phasor~;
+#X obj 91 223 s \$0-pw;
+#X obj 237 160 r \$0-freq;
+#X obj 165 111 s \$0-freq;
+#X obj 256 85 clip 0 1;
+#X obj 52 254 s \$0-wave;
+#X obj 256 60 r \$0-wave;
+#X obj 256 110 sig~;
+#X obj 237 210 *~;
+#X obj 256 135 util/balpow~;
+#X obj 35 35 knob size 51 default 0.5 front 909;
+#X obj 274 210 expr~ $v1 > $v2;
+#X obj 376 185 r \$0-pw;
+#X obj 274 235 *~;
+#X obj 238 272 *~;
+#X obj 238 297 outlet~;
+#X connect 0 0 7 0;
+#X connect 1 0 18 1;
+#X connect 2 0 5 0;
+#X connect 3 0 12 0;
+#X connect 4 0 15 0;
+#X connect 6 0 3 0;
+#X connect 6 0 4 0;
+#X connect 8 0 11 0;
+#X connect 10 0 8 0;
+#X connect 11 0 13 0;
+#X connect 12 0 18 0;
+#X connect 13 0 12 1;
+#X connect 13 1 17 1;
+#X connect 14 0 9 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 1;
+#X connect 17 0 12 0;
+#X connect 18 0 19 0;
+#X coords 0 0 1 1 114 113 2 32 32;

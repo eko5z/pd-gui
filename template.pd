@@ -1,18 +1,9 @@
-#N struct 7836-knob float value float px1 float px2 float py1 float
-py2;
-#N struct 7813-knob float value float px1 float px2 float py1 float
-py2;
-#N struct 7846-knob float value float px1 float px2 float py1 float
-py2;
+#N struct 1124-knob float value float px1 float px2 float py1 float
+py2 float lv float lx float l;
+#N struct 1134-knob float value float px1 float px2 float py1 float
+py2 float lv float lx float l;
 #N canvas 0 94 1280 930 12;
-#X obj 434 382 knob;
-#X floatatom 434 422 5 0 0 0 - - -;
-#X obj 489 365 knob size 69 min 0 max 100 default 30 back 909 front
-9;
-#X floatatom 489 439 5 0 0 0 - - -;
-#X obj 570 375 knob size 49 drop 0 front 0 back 999 min -100 max 0
-default -40;
-#X floatatom 570 429 5 0 0 0 - - -;
-#X connect 0 0 1 0;
-#X connect 2 0 3 0;
-#X connect 4 0 5 0;
+#X obj 486 392 knob size 61 front 905 min -100 max 100 label Attack 
+;
+#X obj 493 471 knob size 47 front 509 min 9 max 34 default 8 label
+Some kind of label ;

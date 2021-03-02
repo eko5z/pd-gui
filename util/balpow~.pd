@@ -1,0 +1,10 @@
+#N canvas 503 516 450 300 12;
+#X obj 15 8 inlet~;
+#X obj 15 32 expr~ sqrt(1 - $v1) \; sqrt($v1) \;, f 21;
+#X obj 15 70 outlet~;
+#X obj 113 70 outlet~;
+#X text 13 94 This patch splits a signal (or a number) into two equal-powered
+distances from 0 and 1 \, respectively.;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
