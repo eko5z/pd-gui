@@ -1,8 +1,8 @@
-#N struct 7762-knob float value float px1 float px2 float py1 float
+#N struct 7836-knob float value float px1 float px2 float py1 float
 py2;
-#N struct 7772-knob float value float px1 float px2 float py1 float
+#N struct 7813-knob float value float px1 float px2 float py1 float
 py2;
-#N struct 7792-knob float value float px1 float px2 float py1 float
+#N struct 7846-knob float value float px1 float px2 float py1 float
 py2;
 #N canvas 0 94 1280 930 12;
 #X obj 434 382 knob;

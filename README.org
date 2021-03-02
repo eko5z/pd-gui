@@ -12,3 +12,7 @@ structures. Double-click to put the knob dial to the customizable
 default value.
 ** Showcase
 [[./knob.gif]]
+* Knob backing
+A backing for the knob, used to show the current value and a label.
+** Showcase
+[[./knob-back.png]]

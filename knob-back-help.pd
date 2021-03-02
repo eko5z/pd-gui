@@ -1,0 +1,19 @@
+#N struct 8314-knob float value float px1 float px2 float py1 float
+py2;
+#N canvas 607 658 436 246 12;
+#X text 3 1 [knob-back] --- a backing for the knob \, used to display
+a label and the current value of the knob., f 60;
+#X obj 19 52 knob;
+#X obj 19 36 knob-back label Wave;
+#X text 64 61 Try turning the knob and see what happens!, f 49;
+#X text 2 91 It takes in \, just like the knob \, arguments in the
+form of tuplets., f 60;
+#X text 2 172 label --- the label displayed at the top., f 60;
+#X text 2 190 back --- the background color \, in some unknown internal
+PD format. God knows how it works., f 60;
+#X text 2 223 front --- the font color \, also in the weird format.
+, f 60;
+#X text 2 124 size --- the size of the knob you have \, the backing
+will adapt to it \, and then you can simply place the knob in the empty
+area., f 60;
+#X connect 1 0 2 0;
