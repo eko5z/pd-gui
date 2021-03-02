@@ -1,47 +1,18 @@
-#N struct 1889-knob float value float dx float dy float backdrop float
-back float front float valuer float v;
-#N struct 1894-knob float value float dx float dy float backdrop float
-back float front float valuer float v;
-#N struct 1899-knob float value float dx float dy float backdrop float
-back float front float valuer float v;
-#N struct 1904-knob float value float dx float dy float backdrop float
-back float front float valuer float v;
-#N struct 1909-knob float value float dx float dy float backdrop float
-back float front float valuer float v;
+#N struct 7762-knob float value float px1 float px2 float py1 float
+py2;
+#N struct 7772-knob float value float px1 float px2 float py1 float
+py2;
+#N struct 7792-knob float value float px1 float px2 float py1 float
+py2;
 #N canvas 0 94 1280 930 12;
-#X obj 588 339 list;
-#X obj 741 490 route size backdrop back front;
-#X floatatom 736 527 5 0 0 0 - - -;
-#X floatatom 780 531 5 0 0 0 - - -;
-#X floatatom 829 530 5 0 0 0 - - -;
-#X floatatom 898 540 5 0 0 0 - - -;
-#X obj 488 429 print;
-#X obj 485 376 print;
-#X obj 588 364 list split 2;
-#X msg 588 314 size 300 backdrop 400;
-#X obj 588 389 print;
-#X obj 632 389 list;
-#X obj 316 618 knob size 12;
-#X obj 578 653 knob min -100 max 100;
-#X floatatom 578 693 5 0 0 0 - - -;
-#X obj 747 686 knob min -200;
-#X floatatom 747 726 5 0 0 0 - - -;
-#X obj 882 696 knob min 0 max 100;
-#X floatatom 882 736 5 0 0 0 - - -;
-#X floatatom 580 601 5 0 0 0 - - -;
-#X obj 437 639 knob size 40;
-#X floatatom 437 684 5 0 0 0 - - -;
-#X connect 0 0 8 0;
-#X connect 1 0 2 0;
-#X connect 1 1 3 0;
-#X connect 1 2 4 0;
-#X connect 1 3 5 0;
-#X connect 8 0 10 0;
-#X connect 8 1 11 0;
-#X connect 9 0 0 0;
-#X connect 11 0 8 0;
-#X connect 13 0 14 0;
-#X connect 15 0 16 0;
-#X connect 17 0 18 0;
-#X connect 19 0 13 0;
-#X connect 20 0 21 0;
+#X obj 434 382 knob;
+#X floatatom 434 422 5 0 0 0 - - -;
+#X obj 489 365 knob size 69 min 0 max 100 default 30 back 909 front
+9;
+#X floatatom 489 439 5 0 0 0 - - -;
+#X obj 570 375 knob size 49 drop 0 front 0 back 999 min -100 max 0
+default -40;
+#X floatatom 570 429 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;

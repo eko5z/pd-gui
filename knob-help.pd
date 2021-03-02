@@ -1,0 +1,34 @@
+#N struct 7681-knob float value float px1 float px2 float py1 float
+py2;
+#N struct 7691-knob float value float px1 float px2 float py1 float
+py2;
+#N canvas 522 197 432 527 12;
+#X text -1 1 [knob] --- knob in vanilla PD;
+#X obj 19 30 knob;
+#X floatatom 19 70 5 0 0 0 - - -;
+#X text 67 37 the default look & size;
+#X text 2 97 To supply arguments \, simply pass tuplets to the knob
+on creation \, so it'll be like [knob size 49 min -1 max 300]. The
+available arguments are:, f 60;
+#X text 2 145 size --- size in pixels \, for perfect circles use odd
+values!;
+#X text 2 163 drop --- the backdrop color \, the white area (behind
+the knob) in the knob above. NOTE: all colors are in RGB PD format
+\, that is 999 is pure white \, 0 is black \, 900 is red \, and so
+on.;
+#X text 2 226 back --- the color of the "knob" area \, that is the
+black circle in the knob above., f 60;
+#X text 2 259 front --- the color of the "dial" of the knob \, that
+is the white dot that goes around when you turn the knob., f 60;
+#X text 2 292 min --- the minimum value \, i.e. the value you get when
+you turn the knob all the way down., f 60;
+#X text 2 325 max --- the maximum value \, i.e. the value you get when
+you turn the knob all the way up., f 60;
+#X text 2 358 default --- the default value \, also the value you get
+when you double-click on the knob., f 60;
+#X obj 37 400 knob size 69 back 333 front 909 min -100 max 100 default
+40;
+#X floatatom 37 474 5 0 0 0 - - -;
+#X text 116 427 knob that uses a few of the above;
+#X connect 1 0 2 0;
+#X connect 12 0 13 0;
