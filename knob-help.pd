@@ -1,8 +1,8 @@
-#N struct 12023-knob float value float px1 float px2 float py1 float
-py2 float lv float lx float l;
-#N struct 12034-knob float value float px1 float px2 float py1 float
-py2 float lv float lx float l;
-#N canvas 521 196 432 562 12;
+#N struct 1919-knob float value float px1 float px2 float py1 float
+py2;
+#N struct 1926-knob float value float px1 float px2 float py1 float
+py2;
+#N canvas 518 193 432 612 12;
 #X text -1 1 [knob] --- knob in vanilla PD;
 #X obj 19 30 knob;
 #X floatatom 19 70 5 0 0 0 - - -;
@@ -26,13 +26,9 @@ you turn the knob all the way down., f 60;
 you turn the knob all the way up., f 60;
 #X text 2 358 default --- the default value \, also the value you get
 when you double-click on the knob., f 60;
-#X obj 37 457 knob size 69 back 333 front 909 min -100 max 100 default
+#X obj 37 394 knob size 69 back 333 front 909 min -100 max 100 default
 40;
-#X floatatom 37 531 5 0 0 0 - - -;
-#X text 116 484 knob that uses a few of the above;
-#X text 2 391 label --- the label of the value preview that appears
-whenever you change the value or click the knob. The default is "value=".
-In order to insert a space \, if you want \, you need to escape it
-\, so you type in [knob label whatever ];
+#X floatatom 37 468 5 0 0 0 - - -;
+#X text 116 421 knob that uses a few of the above;
 #X connect 1 0 2 0;
 #X connect 12 0 13 0;
